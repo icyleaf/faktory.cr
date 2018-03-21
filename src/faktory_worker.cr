@@ -8,11 +8,6 @@ module Faktory
     logger = Logger.new(STDOUT)
     logger.level = Logger::INFO
     logger.progname = "faktory.cr"
-    logger.formatter = Logger::Formatter.new do |severity, datetime, progname, message, io|
-      label = severity.unknown? ? "ANY" : severity.to_s
-      io << label[0] << ", [" << datetime.to_utc << " #" << Process.pid << "] "
-      io << label.rjust(5) << " -- " << progname << ": " << message
-    end
     return logger
   end
 
